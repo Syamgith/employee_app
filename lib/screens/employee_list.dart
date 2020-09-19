@@ -18,17 +18,25 @@ class EmployeeList extends StatelessWidget {
               return ListView.builder(
                 itemCount: (data as List).length,
                 itemBuilder: (context, index) {
-                  return ListTile(
-                    title: Text(
-                        '${data[index]['first_name']} ${data[index]['last_name']}'),
-                    leading: Image.network(data[index]['avatar']),
-                    subtitle: Text('${data[index]['email']}'),
-                    //trailing: Text('${data[index]['email']}'),
+                  return Container(
+                    padding: EdgeInsets.all(10.0),
+                    child: ListTile(
+                      title: Text(
+                        '${data[index]['first_name']} ${data[index]['last_name']}',
+                        style: TextStyle(
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      leading: Image.network(data[index]['avatar']),
+                      subtitle: Text('${data[index]['email']}'),
+                      //trailing: Text('${data[index]['email']}'),
+                    ),
                   );
                 },
               );
             }
-            return CircularProgressIndicator();
+            return Center(child: CircularProgressIndicator());
           },
         ),
       ),
